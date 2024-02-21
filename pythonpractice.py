@@ -1,3 +1,6 @@
+#Practice some conditional statements
+
+
 # day = input("What day is today:-")
 # age = int(input("Enter your age:"))
 
@@ -63,3 +66,93 @@
 #     print("It's a leap year.")
 # else:
 #     print("It's not a leap year.")
+
+
+
+
+#Practice of some loops questions
+
+# numbers = [1, -2, 3, -4, 5, 6, -7, -8, 9, 10]
+# count = 0
+# for i in numbers:
+#     if i > 0:
+#         count += 1
+# print(count)
+
+
+# num = int(input("Enter a number:- "))
+# sum = 0
+# for i in range(1, num + 1):
+#     if i % 2 == 0:
+#         sum += 1
+# print(sum)
+
+
+# number = int(input("Enter the number:- "))
+# for i in range(1, 11):
+#     if i == 5:
+#         continue
+#     print(number, "X", i, "=", number * i )
+
+
+# input_str = ("Reverse it.")
+# reverse_str = ""
+# for char in input_str:
+#     reverse_str = char + reverse_str
+# print(reverse_str)
+
+
+# input_str = "teeterfgstfhfh"
+# for char in input_str:
+#     if input_str.count(char) == 1:
+#         print("Char is", char)
+#         break
+
+
+# number = 5
+# fact = 1
+# while number > 0:
+#     fact = fact * number
+#     number -= 1
+# print(fact)
+
+
+
+# while True:
+#     number = int(input("Enter number:-"))
+#     if 1 <= number <= 10:
+#         print("Thanks.")
+#         break
+#     else:
+#         print("Invalid number. Try again.")
+
+
+
+# input_num = int(input("Enter a number:-"))
+# is_prime = True
+# if input_num > 1:
+#     for i in range(2, input_num):
+#         if(input_num % i) == 0:
+#             is_prime = False
+#             break
+# print(is_prime)
+
+
+# items = ["apple", "banana", "orange", "apple", "mango"]
+# unique_item = set()
+# for item in items:
+#     if item in unique_item:
+#         print("Duplicate:", item)
+#         break
+#     unique_item.add(item)
+
+
+import time
+wait_time = 1
+max_retries = 5
+attempts = 0
+while attempts < max_retries:
+    print("Attempt", attempts + 1, "-wait time", wait_time)
+    time.sleep(wait_time)
+    wait_time *= 2
+    attempts += 1
