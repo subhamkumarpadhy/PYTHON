@@ -157,43 +157,43 @@
 #     wait_time *= 2
 #     attempts += 1
 
-class Car:
-    total_car = 0
-    def __init__(self, brand, model):
-        self.__brand = brand
-        self.__model = model
-        Car.total_car += 1
+# class Car:
+#     total_car = 0
+#     def __init__(self, brand, model):
+#         self.__brand = brand
+#         self.__model = model
+#         Car.total_car += 1
 
-    def full_name(self):
-        return f"{"The full name of your car is"} {self.__brand} {"-"} {self.__model} {"."}"
-        # print("The full name of your car is ", self.brand, "-", self.model,".")
-    
-    def fuel_type(self):
-        return "Petrol or Diseal"
-    
-    @staticmethod
-    def general_description():
-        return "Cars are costlier than bikes."
-    
-    @property
-    def model(self):
-        return self.__model
+#     def full_name(self):
+#         return f"{"The full name of your car is"} {self.__brand} {"-"} {self.__model} {"."}"
+#         # print("The full name of your car is ", self.brand, "-", self.model,".")
 
-class ElectricCar(Car):
-    def __init__(self, brand, model, battery_size):
-        super().__init__(brand, model)
-        self.battery_size = battery_size
+#     def fuel_type(self):
+#         return "Petrol or Diseal"
 
-    def fuel_type(self):
-        return "Electric Charge"
+#     @staticmethod
+#     def general_description():
+#         return "Cars are costlier than bikes."
 
-car_instance = Car("Land_Rover", "Defender")
+#     @property
+#     def model(self):
+#         return self.__model
+
+# class ElectricCar(Car):
+#     def __init__(self, brand, model, battery_size):
+#         super().__init__(brand, model)
+#         self.battery_size = battery_size
+
+#     def fuel_type(self):
+#         return "Electric Charge"
+
+# car_instance = Car("Land_Rover", "Defender")
 # print(car_instance.brand)
 # print(car_instance.model)
 # print(car_instance.full_name())
 # print(car_instance.fuel_type())
 
-electric_car = ElectricCar("Tesla", "Model X", "100kw")
+# electric_car = ElectricCar("Tesla", "Model X", "100kw")
 # print(electric_car.brand)
 # print(electric_car.model)
 # print(electric_car.battery_size)
@@ -210,46 +210,88 @@ electric_car = ElectricCar("Tesla", "Model X", "100kw")
 
 
 
-class Battery:
-    def battery_info(self):
-        return "This is battery class."
-class Engine:
-    def engine_info(self):
-        return "This is engine class."
+# class Battery:
+#     def battery_info(self):
+#         return "This is battery class."
+# class Engine:
+#     def engine_info(self):
+#         return "This is engine class."
 
-class Electric_Car(Battery, Engine, Car):
-    pass
+# class Electric_Car(Battery, Engine, Car):
+#     pass
 
-my_electric_car = Electric_Car("Toyota", "Land_Crusier")
-print(my_electric_car.engine_info())
-print(my_electric_car.battery_info())
-
-
+# my_electric_car = Electric_Car("Toyota", "Land_Crusier")
+# print(my_electric_car.engine_info())
+# print(my_electric_car.battery_info())
 
 
 
+#Decorators practice
+# import time
 
+# def timer(func):
+#     def wrapper(*args, **kwargs):
+#         start = time.time()
+#         result = func(*args, **kwargs)
+#         end = time.time()
+#         print(f"{func.__name__} ran in {end - start} time")
+#         return result
+#     return wrapper
 
+# @timer
+# def example_function(n):
+#     time.sleep(n)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# example_function(5)
 
 
 
 
 
+# def debug(func):
+#     def wrapper(*args, **kwargs):
+#         args_value = ', '.join(str(arg) for arg in args)
+#         kwargs_value = ', '.join(f"{k} = {v}" for k, v in kwargs.items())
+#         print(f"calling: {func.__name__} with args {args_value} & kwargs {kwargs_value}")
+#         return func(*args, **kwargs)
+#     return wrapper
+
+# @debug
+# def hello():
+#     print("Hello")
+
+# @debug
+# def greet(name, greeting = "Hello"):
+#     print(f"{greeting}, {name}")
+
+# hello()
+# greet("Chai", greeting = "hanji")
+
+
+
+
+
+import time
+
+def cache(func):
+    cache_value = {}
+    print(cache_value)
+    def wrapper(*args):
+        if args in cache_value:
+            return cache_value[args]
+        result = func(*args)
+        cache_value[args] = result
+        return result
+    return wrapper
+
+@cache
+def long_runnign_function(a, b):
+    time.sleep(5)
+    return a + b
+
+print(long_runnign_function(2, 3))
+print(long_runnign_function(2, 3))
+print(long_runnign_function(4, 3))
 
 
 
