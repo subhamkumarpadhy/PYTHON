@@ -147,12 +147,144 @@
 #     unique_item.add(item)
 
 
-import time
-wait_time = 1
-max_retries = 5
-attempts = 0
-while attempts < max_retries:
-    print("Attempt", attempts + 1, "-wait time", wait_time)
-    time.sleep(wait_time)
-    wait_time *= 2
-    attempts += 1
+# import time
+# wait_time = 1
+# max_retries = 5
+# attempts = 0
+# while attempts < max_retries:
+#     print("Attempt", attempts + 1, "-wait time", wait_time)
+#     time.sleep(wait_time)
+#     wait_time *= 2
+#     attempts += 1
+
+class Car:
+    total_car = 0
+    def __init__(self, brand, model):
+        self.__brand = brand
+        self.__model = model
+        Car.total_car += 1
+
+    def full_name(self):
+        return f"{"The full name of your car is"} {self.__brand} {"-"} {self.__model} {"."}"
+        # print("The full name of your car is ", self.brand, "-", self.model,".")
+    
+    def fuel_type(self):
+        return "Petrol or Diseal"
+    
+    @staticmethod
+    def general_description():
+        return "Cars are costlier than bikes."
+    
+    @property
+    def model(self):
+        return self.__model
+
+class ElectricCar(Car):
+    def __init__(self, brand, model, battery_size):
+        super().__init__(brand, model)
+        self.battery_size = battery_size
+
+    def fuel_type(self):
+        return "Electric Charge"
+
+car_instance = Car("Land_Rover", "Defender")
+# print(car_instance.brand)
+# print(car_instance.model)
+# print(car_instance.full_name())
+# print(car_instance.fuel_type())
+
+electric_car = ElectricCar("Tesla", "Model X", "100kw")
+# print(electric_car.brand)
+# print(electric_car.model)
+# print(electric_car.battery_size)
+# print(electric_car.full_name())
+# print(electric_car.fuel_type())
+
+# print(Car.total_car)
+
+# print(car_instance.general_description())
+# print(Car.general_description())
+
+# print(isinstance(electric_car, ElectricCar))
+# print(isinstance(electric_car, Car))
+
+
+
+class Battery:
+    def battery_info(self):
+        return "This is battery class."
+class Engine:
+    def engine_info(self):
+        return "This is engine class."
+
+class Electric_Car(Battery, Engine, Car):
+    pass
+
+my_electric_car = Electric_Car("Toyota", "Land_Crusier")
+print(my_electric_car.engine_info())
+print(my_electric_car.battery_info())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
