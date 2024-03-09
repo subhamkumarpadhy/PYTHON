@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 from bson import ObjectId
-client = MongoClient("mongodb+srv://YouTube_Manager:**************@cluster0.tdqafla.mongodb.net/", tlsAllowInvalidCertificates = True)
+client = MongoClient("mongodb+srv://YouTube_Manager:youtube@cluster0.p67aqtd.mongodb.net/", tlsAllowInvalidCertificates = True)
 print(client)
 db = client["ytmanager"]
 video_collection = db["videos"]
@@ -20,7 +20,7 @@ def update_video(video_id, new_name, new_time):
     )
 
 def delete_video(video_id):
-    video_collection.delete_one({"_id": video_id})
+    video_collection.delete_one({"_id":ObjectId(video_id)})
 
 def main():
     while True:
