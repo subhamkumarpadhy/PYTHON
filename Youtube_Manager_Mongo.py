@@ -1,10 +1,9 @@
 from pymongo import MongoClient
 from bson import ObjectId
-client = MongoClient("mongodb+srv://YouTube_Manager:youtube@cluster0.p67aqtd.mongodb.net/", tlsAllowInvalidCertificates = True)
+client = MongoClient("mongodb+srv://YouTube_Manager:*******@cluster0.p67aqtd.mongodb.net/", tlsAllowInvalidCertificates = True)
 print(client)
 db = client["ytmanager"]
 video_collection = db["videos"]
-# print(video_collection)
 
 def List_all_videos():
     for video in video_collection.find():
